@@ -30,7 +30,7 @@ if [ `ls -1 data/gnomad.exomes.r2.1.sites.vcf.bgz* 2>/dev/null | wc -l ` -eq 0 ]
     wget -P data https://storage.googleapis.com/gnomad-public/release/2.1/vcf/exomes/gnomad.exomes.r2.1.sites.vcf.bgz.tbi
 fi
 #gnomAD v2.1 coverage is same as 2.0.2
-if [ `ls -1 data/nomad.exomes.coverage.summary.tsv.bgz | wc -l ` -eq 0 ]; then
+if [ `ls -1 data/gnomad.exomes.coverage.summary.tsv.bgz | wc -l ` -eq 0 ]; then
     wget -P data https://storage.googleapis.com/gnomad-public/release/2.1/coverage/exomes/gnomad.exomes.coverage.summary.tsv.bgz
     tabix -b 2 -e 2 -c c data/gnomad.exomes.coverage.summary.tsv.bgz # gnomAD 2.1 has an uncommented first line but no line should start with c other than that
 fi

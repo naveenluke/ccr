@@ -25,15 +25,15 @@ fi
 
 # get gnomAD VCF, coverage files
 #gnomAD v2.0.1 VCF
-if [ `ls -1 data/gnomad.exomes.r2.0.1.sites.vcf.gz* 2>/dev/null | wc -l ` -eq 0 ]; then
-    wget -P data https://storage.googleapis.com/gnomad-public/release/2.0.1/vcf/exomes/gnomad.exomes.r2.0.1.sites.vcf.gz
-    wget -P data https://storage.googleapis.com/gnomad-public/release/2.0.1/vcf/exomes/gnomad.exomes.r2.0.1.sites.vcf.gz.tbi
-fi
-#gnomAD v2.0.2 VCF
-#if [ `ls -1 data/gnomad.exomes.r2.0.2.sites.vcf.bgz* 2>/dev/null | wc -l ` -eq 0 ]; then
-#    wget -P data https://storage.googleapis.com/gnomad-public/release/2.0.2/vcf/exomes/gnomad.exomes.r2.0.2.sites.vcf.bgz
-#    wget -P data https://storage.googleapis.com/gnomad-public/release/2.0.2/vcf/exomes/gnomad.exomes.r2.0.2.sites.vcf.bgz.tbi
+#if [ `ls -1 data/gnomad.exomes.r2.0.1.sites.vcf.gz* 2>/dev/null | wc -l ` -eq 0 ]; then
+#    wget -P data https://storage.googleapis.com/gnomad-public/release/2.0.1/vcf/exomes/gnomad.exomes.r2.0.1.sites.vcf.gz
+#    wget -P data https://storage.googleapis.com/gnomad-public/release/2.0.1/vcf/exomes/gnomad.exomes.r2.0.1.sites.vcf.gz.tbi
 #fi
+#gnomAD v2.0.2 VCF
+if [ `ls -1 data/gnomad.exomes.r2.0.2.sites.vcf.bgz* 2>/dev/null | wc -l ` -eq 0 ]; then
+    wget -P data https://storage.googleapis.com/gnomad-public/release/2.0.2/vcf/exomes/gnomad.exomes.r2.0.2.sites.vcf.bgz
+    wget -P data https://storage.googleapis.com/gnomad-public/release/2.0.2/vcf/exomes/gnomad.exomes.r2.0.2.sites.vcf.bgz.tbi
+fi
 #gnomAD v2.0.2 coverage (same as v2.0.1 coverage)
 if [ `ls -1 data/gnomad.exomes.r2.0.2.chr* 2>/dev/null | wc -l ` -eq 0 ]; then
     for i in {1..22} X Y; do wget -P data https://storage.googleapis.com/gnomad-public/release/2.0.2/coverage/exomes/gnomad.exomes.r2.0.2.chr$i.coverage.txt.gz; done
@@ -51,9 +51,9 @@ if [ `ls -1 data/Panel.chr* 2>/dev/null | wc -l ` -eq 0 ]; then
 fi
 
 #gnomAD
-#v2.0.1
+#v2.0.2
 if [ ! -s data/gnomad-vep-vt.vcf.gz ]; then
-    bash varmake.sh data/gnomad.exomes.r2.0.1.sites.vcf.gz
+    bash varmake.sh data/gnomad.exomes.r2.0.2.sites.vcf.gz
 fi
 #ExAC
 #v1 (final)
